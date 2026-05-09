@@ -31,4 +31,5 @@ public class Stock {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private EstadoStock estado;
+    
 }
