@@ -1,5 +1,7 @@
 package com.PerfulandiaSPA.ServicioInventarioCatalogo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.PerfulandiaSPA.ServicioInventarioCatalogo.model.Producto;
@@ -11,6 +13,10 @@ public class ProductoService {
 
     public Producto agregarProducto(Producto nuevoProducto){
         return productoRepository.save(nuevoProducto);
+    }
+
+    public List<Producto> buscarProductos(String busqueda){
+        return productoRepository.findByNombreContainingIgnoreCase(busqueda);
     }
 
     public Producto actualizarProducto(Long id, Producto productoActualizado){
