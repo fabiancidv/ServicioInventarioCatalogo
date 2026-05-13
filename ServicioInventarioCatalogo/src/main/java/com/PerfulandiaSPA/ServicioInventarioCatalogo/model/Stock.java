@@ -20,10 +20,10 @@ import lombok.NoArgsConstructor;
 public class Stock {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(name = "producto_id", nullable = false)
-    private int productoId;
+    private Long productoId;
 
     @Column(name = "cantidad_disponible", nullable = false)
     private int cantidadDisponible;
@@ -31,5 +31,4 @@ public class Stock {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private EstadoStock estado;
-    
 }
