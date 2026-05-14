@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,7 @@ public class Stock {
     @Column(name = "producto_id", nullable = false)
     private Long productoId;
 
+    @Min(value = 0, message = "La cantidad disponible no puede ser menor a cero")
     @Column(name = "cantidad_disponible", nullable = false)
     private int cantidadDisponible;
 
