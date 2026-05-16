@@ -41,6 +41,6 @@ public class StockService {
     }
 
     public EstadoRespuesta autorizarReabastecimiento(Long pedidoId){
-        return
+        return null;
     }
 }
