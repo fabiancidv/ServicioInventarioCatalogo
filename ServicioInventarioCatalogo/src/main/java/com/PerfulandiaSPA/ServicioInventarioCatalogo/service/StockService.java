@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.PerfulandiaSPA.ServicioInventarioCatalogo.model.EstadoStock;
-import com.PerfulandiaSPA.ServicioInventarioCatalogo.model.Producto;
 import com.PerfulandiaSPA.ServicioInventarioCatalogo.model.Stock;
 import com.PerfulandiaSPA.ServicioInventarioCatalogo.repository.StockRepository;
 

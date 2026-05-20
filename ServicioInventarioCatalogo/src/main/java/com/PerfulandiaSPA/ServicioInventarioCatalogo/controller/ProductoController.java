@@ -24,7 +24,7 @@ public class ProductoController {
     private ProductoService productoService;
 
     @PostMapping
-    public ResponseEntity<?> postProducto(@RequestBody @Valid Producto p){
+    public ResponseEntity<?> postProducto(@Valid @RequestBody Producto p){
         Producto producto = productoService.agregarProducto(p);
         if (producto != null){
             return ResponseEntity.ok(producto);
@@ -33,7 +33,7 @@ public class ProductoController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<?> putProducto(@RequestBody @Valid Producto producto, @PathVariable Long id){
+    public ResponseEntity<?> putProducto(@Valid @RequestBody Producto producto, @PathVariable Long id){
         producto = productoService.actualizarProducto(id, producto);
         if (producto!=null)
             return ResponseEntity.ok(producto);
