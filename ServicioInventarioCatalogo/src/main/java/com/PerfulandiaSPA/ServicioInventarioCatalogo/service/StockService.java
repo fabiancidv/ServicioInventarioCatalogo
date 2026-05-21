@@ -14,6 +14,11 @@ public class StockService {
     @Autowired
     StockRepository stockRepository;
 
+    public Stock conseguirIdStock(Long id){
+        Stock stock = stockRepository.findById(id).orElse(null);
+        return stock;
+    }
+
     public Stock verificarStock(Long productoId){
         Stock producto = stockRepository.findById(productoId).orElse(null);
         if (producto.getCantidadDisponible() == 0){
@@ -40,6 +45,6 @@ public class StockService {
     }
 
     public EstadoRespuesta autorizarReabastecimiento(Long pedidoId){
-        return null;
+        return null; //TODO crear DTO en servicio de logica 
     }
 }

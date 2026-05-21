@@ -51,4 +51,9 @@ public class ProductoService {
     public void eliminarProducto(Long id){
         productoRepository.deleteById(id);
     }
+
+    public Producto obtenerProductoId(Long id) {
+        Producto producto = productoRepository.findById(id).orElse(null);
+        return producto;
+    }
 }

@@ -26,6 +26,15 @@ public class StockController {
     private StockService stockService;
 
     @GetMapping("{id}")
+    public ResponseEntity<?> getStockId(@PathVariable Long id){
+        Stock stockId = stockService.conseguirIdStock(id);
+        if (stockId != null) {
+            return ResponseEntity.ok(stockId);
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Id no encontrado");
+    }
+
+    @GetMapping("verificar/{id}")
     public ResponseEntity<?> getVerificar(@PathVariable Long id){
         Stock producto = stockService.verificarStock(id);
         if (producto != null){
