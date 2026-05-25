@@ -6,13 +6,18 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.PerfulandiaSPA.ServicioInventarioCatalogo.model.EstadoStock;
 import com.PerfulandiaSPA.ServicioInventarioCatalogo.model.Stock;
+import com.PerfulandiaSPA.ServicioInventarioCatalogo.repository.ReabastecimientoRepository;
 import com.PerfulandiaSPA.ServicioInventarioCatalogo.repository.StockRepository;
+import com.PerfulandiaSPA.ServicioInventarioCatalogo.request.ReabastecimientoRequest;
 
 @Service
 @Transactional
 public class StockService {
     @Autowired
     StockRepository stockRepository;
+
+    @Autowired
+    ReabastecimientoRepository reabastecimientoRepository;
 
     public Stock conseguirIdStock(Long id){
         Stock stock = stockRepository.findById(id).orElse(null);
@@ -44,7 +49,11 @@ public class StockService {
         return buscar;
     }
 
+    public void mensajeReabastecimiento(ReabastecimientoRequest reabastecimiento){
+        reabastecimientoRepository.save(reabastecimiento);
+    }
+
     public EstadoRespuesta autorizarReabastecimiento(Long pedidoId){
-        return null; //TODO crear DTO en servicio de logica 
+        return null;
     }
 }
